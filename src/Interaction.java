@@ -1,3 +1,5 @@
+import Exceptions.EatedNotEnoughException;
+
 /**
  * Описывает взаимодействие малышек между собой
  */
@@ -5,18 +7,13 @@ public enum Interaction {
 
     FEED("кормит","кормят"){
         @Override
-        public void action(City subject, Baby object) {
-            super.action(subject, object);
-            object.setCondition(Condition.NORMAL);
+        public void action(City subject, Baby object) throws EatedNotEnoughException {
+            super.action(subject,object);
+            object.beFed();
         }
     },
-    REPORT("доложил"){
-        @Override
-        public void action(Baby subject, Baby object) {
-            System.out.print(subject.getName()+" "+this.singularForm+" "+object.getName()+",");
-        }
-    },
-    COMEBACK("вернулся");
+    REPORT("доложил",""),
+    COMEBACK("вернулся из обхода");
 
     protected String singularForm, plurarForm;
     Interaction(String singularForm, String plurarForm) {
@@ -32,7 +29,7 @@ public enum Interaction {
 
         System.out.println(subject.getName()+" " + this.singularForm+" " +object.getName());
     }
-    public void action(City subject, Baby object){
+    public void action(City subject, Baby object) throws EatedNotEnoughException {
 
         System.out.println(City.PSEUDONIM+" "+this.plurarForm+" "+object.getName());
     }

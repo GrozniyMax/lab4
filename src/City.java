@@ -1,8 +1,44 @@
+import Exceptions.EatedNotEnoughException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class City implements ICanBeUnderEffect, ICanDo {
+
+    public class Neighbourhood{
+        ArrayList<Baby> peopleLivingIn;
+        String name;
+        public Neighbourhood(String name) {
+            this.peopleLivingIn = new ArrayList<>();
+            this.name = name;
+        }
+
+        public void becomeMemberOf(Baby baby){
+            this.peopleLivingIn.add(baby);
+            System.out.println();
+        }
+
+        public ArrayList<Baby> getPeopleLivingIn() {
+            return peopleLivingIn;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof Neighbourhood that)) return false;
+            return Objects.equals(peopleLivingIn, that.peopleLivingIn) && Objects.equals(name, that.name);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(peopleLivingIn, name);
+        }
+    }
     private ArrayList<Baby> members;
     String name;
     static final String PSEUDONIM="Малышки";
@@ -21,8 +57,10 @@ public class City implements ICanBeUnderEffect, ICanDo {
 
     }
     public void addCrowd(int number){
+        final Neighbourhood crowdNeighbourhood = this.new Neighbourhood("Some other Neighbourhood");
         for (int i = 0; i < number; i++) {
             Baby futureCitizen = new Baby();
+            futureCitizen.liveInNeighbourhood(crowdNeighbourhood);
             futureCitizen.liveInTown(this);
             members.add(futureCitizen);
         }
@@ -32,10 +70,10 @@ public class City implements ICanBeUnderEffect, ICanDo {
     @Override
     public void changeSelfCondition(Condition newCondition) {
         for (Baby citizen : members) {
-            citizen.changeSelfCondition(newCondition);
+            if (!(citizen.getName().contains("Безымянный"))){
+                citizen.changeSelfCondition(newCondition);
+            }
         }
-        System.out.printf("То есть, все теперь в состоянии %s\n",newCondition.getName());
-        System.out.println(" ");
     }
 
     @Override
@@ -48,7 +86,7 @@ public class City implements ICanBeUnderEffect, ICanDo {
     }
 
     @Override
-    public void toDo(Baby object, Interaction activity) {
+    public void toDo(Baby object, Interaction activity) throws EatedNotEnoughException {
         activity.action(this,object);
 
     }
