@@ -1,3 +1,7 @@
+package OtherStuff;
+
+import OtherStuff.ICanBeUnderEffect;
+
 public abstract class Disaster {
 
     public   void happen(ICanBeUnderEffect object){
@@ -8,7 +12,7 @@ public abstract class Disaster {
 
     @Override
     public String toString() {
-        return "Disaster{}";
+        return "OtherStuff.Disaster{}";
     }
 
     @Override

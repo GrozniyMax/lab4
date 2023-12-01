@@ -1,3 +1,5 @@
+package OtherStuff;
+
 public enum Condition {
     NORMAL("обычном состоянии"),
     WEIGHTLESS("состоянии невесомости");
@@ -13,7 +15,7 @@ public enum Condition {
 
     @Override
     public String toString() {
-        return "Condition{" +
+        return "OtherStuff.Condition{" +
                 "name='" + name + '\'' +
                 '}';
     }

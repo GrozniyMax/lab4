@@ -1,3 +1,5 @@
+package OtherStuff;
+import Babies.Baby;
 import Exceptions.EatedNotEnoughException;
 
 public interface ICanDo {

@@ -1,3 +1,6 @@
+package OtherStuff;
+
+import Babies.Baby;
 import Exceptions.EatedNotEnoughException;
 
 import java.util.ArrayList;
@@ -113,7 +116,7 @@ public class City implements ICanBeUnderEffect, ICanDo {
 
     @Override
     public String toString() {
-        return "City{" +
+        return "OtherStuff.City{" +
                 "name='" + name + '\'' +
                 '}';
     }
