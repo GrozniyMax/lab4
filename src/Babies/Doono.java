@@ -1,4 +1,9 @@
+package Babies;
+
 import Exceptions.NoConclusionException;
+import OtherStuff.City;
+import OtherStuff.Condition;
+import OtherStuff.ReportData;
 
 import java.util.Objects;
 import java.util.Random;
@@ -44,10 +49,10 @@ public class Doono extends Baby {
                 }
                 return Boolean.TRUE;
             }
-            //TODO добавить необрабатываемое исключение по типу "ничего не придумал"
+
             void makeСonclusion(Baby baby) throws NoConclusionException {
                 Random random = new Random();
-                if (!(random.nextInt()%2==0)){
+                if (!(random.nextInt()%50==0)){
                     if (this.checkHypothesis(baby)){
                         System.out.println("Странно, но все случаи невесомости ограничиваются нашим районом");
                         System.out.println("Надо с этим разобраться");
@@ -72,7 +77,7 @@ public class Doono extends Baby {
 
     @Override
     public String toString() {
-        return "Doono{" +
+        return "Babies.Doono{" +
                 "city=" + super.city.toString() +
                 ", name='" + name + '\'' +
                 ", condition=" + condition +

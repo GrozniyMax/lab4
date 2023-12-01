@@ -1,3 +1,10 @@
+package Babies;
+
+import OtherStuff.City;
+import OtherStuff.Condition;
+import OtherStuff.Interaction;
+import OtherStuff.ReportData;
+
 import java.util.Objects;
 
 public class DrPillman extends Baby {
@@ -29,7 +36,7 @@ public class DrPillman extends Baby {
 
     @Override
     public String toString() {
-        return "DrPillman{" +
+        return "Babies.DrPillman{" +
                 "city=" + city +
                 ", name='" + name + '\'' +
                 ", condition=" + condition +

@@ -1,4 +1,8 @@
+import Babies.Baby;
+import Babies.Doono;
+import Babies.DrPillman;
 import Exceptions.EatedNotEnoughException;
+import OtherStuff.*;
 
 import java.util.Random;
 

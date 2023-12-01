@@ -1,4 +1,7 @@
+package Babies;
+
 import Exceptions.EatedNotEnoughException;
+import OtherStuff.*;
 
 import java.util.Objects;
 
@@ -79,7 +82,7 @@ public class Baby implements ICanBeUnderEffect, ICanDo {
 
     @Override
     public String toString() {
-        return "Baby{" +
+        return "Babies.Baby{" +
                 "city=" + city.toString() +
                 ", name='" + name + '\'' +
                 ", condition=" + condition +
